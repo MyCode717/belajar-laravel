@@ -1,3 +1,5 @@
-<h1>Selamat datang di website kelompok 1</h1>
+@extends('layouts.app')
 
-<p>Selamat datang di kelompok {{ $kelompok }} dengan Ketua disini bernama {{ $nama_ketua }}</p>
+@section('content')
+    <h1>Welcome to HOME!!</h1>
+@endsection

@@ -1,3 +1,0 @@
-<h1>JARGON KELOMPOK 4</h1>
-
-<p font-size="500">KELOMPOK NGGAK PERNAH MAGER</p>
