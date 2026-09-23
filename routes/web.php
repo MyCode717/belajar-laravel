@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/home', function () {
@@ -9,3 +10,5 @@ Route::get('/home', function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+Route::resource('produk',ProdukController::class);
