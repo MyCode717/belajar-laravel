@@ -18,6 +18,12 @@
             <x-nav-item :href="route('about')" :active="request()->routeIs('about')">
                 About
             </x-nav-item>
+            <x-nav-item :href="route('produk.index')" :active="request()->routeIs('produk.*')">
+                Produk
+            </x-nav-item>
+            <x-nav-item :href="route('kategori.index')" :active="request()->routeIs('kategori.*')">
+                Kategori
+            </x-nav-item>
         </ul>   
     </div>
     </div>
