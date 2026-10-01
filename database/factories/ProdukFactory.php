@@ -19,6 +19,7 @@ class ProdukFactory extends Factory
     {
         return [
             'nama_produk' => fake()->unique()->words(2, true),
+            'deskripsi' => fake()->sentence(),
             'harga' => fake()->numberBetween(10000, 2500000),
             'stok' => fake()->numberBetween(5,100)
         ];

@@ -14,6 +14,7 @@ class ProdukSeeder extends Seeder
     {
         \App\Models\Produk::create([
             'nama_produk'=>'Laptop ASUS ROG Strix',
+            'deskripsi'=>'Laptop Gaming terbaik sepanjang masa',
             'harga'=>25000000,
             'stok'=>7
         ]);
