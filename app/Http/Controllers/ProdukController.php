@@ -3,33 +3,67 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
 class ProdukController extends Controller
 {
-    private function dataProduk(){
-        return [
-            ['nama_produk' => 'ASUS ROG Strix G15', 'harga' => '20000000'],
-            ['nama_produk' => 'XIAOMI 18', 'harga' => '17000000'],
-            ['nama_produk' => 'SAMSUNG S26 ULTRA', 'harga' => '26700000']
-        ];
-    }
-
-
-    public function index(){
-        $produks = $this->dataProduk();
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $produks = Produk::orderBy('nama_produk', 'asc')->get();
 
         return view('produk.index', compact('produks'));
     }
 
-    public function show($id){
-        $produks = $this->dataProduk();
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
 
-        if($id >= count($produks)){
-            abort(404);
-        }
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
-        $produk = $produks[$id];
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $produk = Produk::findOrFail($id);
 
         return view('produk.show', compact('produk'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }
