@@ -9,6 +9,18 @@
 <div class="container">
     <h1 class="text-center">Daftar Produk</h1>
 
+    <p>
+        <a href="{{ route('produk.create') }}">
+            Tambah Produk
+        </a>
+    </p>
+
+    @session('success')
+    <p style="color: green">
+        {{ session('success') }}
+    </p>
+    @endsession
+
 <table border="1" cellpadding="5" class="table table-bordered my-4 mx-auto w-75">
     <thead>
         <tr>
@@ -26,7 +38,18 @@
             <td>{{ $produk->nama_produk }}</td>
             <td>Rp{{ number_format($produk->harga,0,',','.') }}</td>
             <td>{{ $produk->stok }}</td>
-            <td><a href="{{ route('produk.show', $produk->id) }}">Lihat Detail</a></td>
+            <td><a href="{{ route('produk.show', $produk->id) }}">Lihat Detail</a>
+            <a href="{{ route('produk.edit', $produk->id) }}">
+                Edit
+            </a>
+            <form action="{{ route('produk.destroy', $produk->id) }}" method="post" style="display: inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" onclick="return confirm('Apakah anda yakin ingin menghapus produk ini? ')">
+                    Hapus
+                </button>
+            </form>
+        </td>
         </tr>
         @empty
         <tr>

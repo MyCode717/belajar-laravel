@@ -22,7 +22,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('produk.create');
     }
 
     /**
@@ -30,12 +30,11 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Produk::create($request->all());
+
+        return redirect()->route('produk.index')->with('success', 'Produk berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $produk = Produk::findOrFail($id);
@@ -46,24 +45,22 @@ class ProdukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Produk $produk)
     {
-        //
+        return view('produk.edit', compact('produk'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Produk $produk)
     {
-        //
+        $produk->update($request->all());
+
+        return redirect()->route('produk.index')->with('success', 'Produk berhasil diperbarui.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Produk $produk)
     {
-        //
+        $produk->delete();
+
+        return redirect()->route('produk.index')->with('success', 'Produk  berhasil dihapus');
     }
 }
